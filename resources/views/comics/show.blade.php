@@ -10,6 +10,7 @@
 </head>
 
 <body>
+	<a href="{{route('comics.index')}}" class="btn btn-big btn-primary">Back to comics</a>
 	<div class="container p-3">
 		<div class="row justify-content-center">
 			<div class="col-6 d-flex justify-content-center">
