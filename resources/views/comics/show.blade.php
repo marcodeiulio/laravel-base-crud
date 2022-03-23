@@ -11,8 +11,9 @@
 
 <body>
 	<div class="container p-3">
-		<a href="{{route('comics.index')}}" class="btn btn-big btn-primary mb-5">Back to comics</a>
-		<div class="row justify-content-center">
+		<a href="{{route('comics.index')}}" class="btn btn-primary">Back to comics</a>
+		<a href="{{route('comics.edit', $comic->id)}}" class="btn btn-info">Edit</a>
+		<div class="row justify-content-center mt-5">
 			<div class="col-6 d-flex justify-content-center">
 				<div class="card" style="width: 18rem;">
 					<img src="{{$comic->thumb}}" class="card-img-top" alt="{{$comic->title}}">

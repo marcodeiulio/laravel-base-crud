@@ -26,6 +26,7 @@
 						<p>Sale Date: {{$comic->sale_date}}</p> --}}
 					</div>
 					<a href="{{route('comics.show', $loop->iteration)}}" class="btn btn-primary">See more</a>
+					<a href="{{route('comics.edit', $comic->id)}}" class="btn btn-info">Edit</a>
 				</div>
 			</div>
 			@endforeach
