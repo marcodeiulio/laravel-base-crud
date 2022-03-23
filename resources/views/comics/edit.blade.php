@@ -12,6 +12,15 @@
 <body>
 	<div class="container p-3">
 		<a href="{{route('comics.index')}}" class="btn btn-big btn-primary mb-5">Back to comics</a>
+		@if($errors->any())
+		<div class="alert alert-danger">
+			<ul>
+				@foreach($errors->all() as $error)
+				<li>{{$error}}</li>
+				@endforeach
+			</ul>
+		</div>
+		@endif
 		<form action="{{route('comics.update', $comic->id)}}" method="POST">
 			@csrf
 			@method('PUT')
