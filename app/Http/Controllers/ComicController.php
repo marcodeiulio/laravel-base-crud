@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comic;
+use Illuminate\Validation\Rule;
 
 class ComicController extends Controller
 {
@@ -36,6 +37,20 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => ['bail', 'required', 'string', 'min:1'],
+            'thumb' => ['bail', 'required', 'url'],
+            'price' => ['bail', 'required', 'numeric'],
+            'series' => 'bail|required|string',
+            'sale_date' => 'bail|required|date',
+            'type' => 'bail|required|string'
+        ], [
+            'required' => 'The  attribute :attribute is required.',
+            'min:1' => 'The :attribute string must be at least 1 character long.',
+            'string' => 'The attribute :attribute must be a string',
+            'numeric' => 'The attribute :attribute must be numeric'
+        ]);
+
         //# Either this
         // $data = $request->all();
         // $comic = new Comic();
@@ -81,6 +96,20 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        $request->validate([
+            'title' => ['bail', 'required', 'string', 'min:1'],
+            'thumb' => ['bail', 'required', 'url'],
+            'price' => ['bail', 'required', 'numeric'],
+            'series' => 'bail|required|string',
+            'sale_date' => 'bail|required|date',
+            'type' => 'bail|required|string'
+        ], [
+            'required' => 'The  attribute :attribute is required.',
+            'min:1' => 'The :attribute string must be at least 1 character long.',
+            'string' => 'The attribute :attribute must be a string',
+            'numeric' => 'The attribute :attribute must be numeric'
+        ]);
+
         //# either this
         // $comic->fill($request->all());
         // $comic->save();
